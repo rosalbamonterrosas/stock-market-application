@@ -4,6 +4,7 @@
  File Name   : tradingApp.h
  Author      : Rosalba Monterrosas
  Date        : July 11, 2018
+ Description : Allows the user to trade on the stock market
  ============================================================================
  */
 

@@ -4,17 +4,22 @@
  File Name   : tradingApp.c
  Author      : Rosalba Monterrosas
  Date        : July 11, 2018
+ Description : Allows the user to trade on the stock market
  ============================================================================
  */
 
 #include "tradingApp.h"
 
 void banner(){
+//Prints a banner
+
     printf("Welcome to the Stock Market Application\n");
     printf("***************************************\n");
 }
 
 int getStockManagementMenuOptions(){
+//Prints the menu options to the user
+
     int menuOptionSelected;
 
     printf("\nPress 1 to view the current price of one or more stocks.\n");
@@ -28,6 +33,8 @@ int getStockManagementMenuOptions(){
 }
 
 int getCheckPriceMenuOptions(){
+//Prints the sub-menu options for checking the current price
+
     int menuOptionSelected2;
 
     printf("\nPress 1 to view the current price of all stocks.\n");
@@ -38,6 +45,8 @@ int getCheckPriceMenuOptions(){
 }
 
 void processCheckPrices(int menuOptionSelected2,MyStockPrices* pMyStockPrices, char* pPriceSimulatorTicker){
+//Invokes simulator functions to get the current price
+
     switch(menuOptionSelected2){
     case 1:
         priceSimulator(pMyStockPrices,pPriceSimulatorTicker,1);
@@ -53,6 +62,8 @@ void processCheckPrices(int menuOptionSelected2,MyStockPrices* pMyStockPrices, c
 }
 
 void processStockManagement(int menuOptionSelected,double balance,MyStockPrices* pMyStockPrices, char* pPriceSimulatorTicker,char* pBuyTicker,char* pSellTicker,double* pBuyShares,double* pSellShares,Portfolio* pMyPortfolio,char* fileName,char* fileName1){
+//Invokes trading functions based on the menu choice selected by the user
+
     int menuOptionSelected2;
     initializePortfolio(fileName1,pMyPortfolio,balance);
     readPortfolio(fileName,pMyPortfolio,1);
@@ -86,6 +97,8 @@ void processStockManagement(int menuOptionSelected,double balance,MyStockPrices*
 }
 
 void process(){
+//Driver of the tradingApp
+
     char* fileName1="mystocks.txt";
     char* fileName="portfolio.txt";
     MyStockPrices myStockPrices;

@@ -4,12 +4,15 @@
  File Name   : project3main.c
  Author      : Rosalba Monterrosas
  Date        : July 11, 2018
+ Description : Simulation of stock market trading
  ============================================================================
  */
 
 #include "tradingApp.h"
 
 void test3(){
+//Tests the simulator and trading functions
+
     MyStockPrices myStockPrices;
     StockPrice* pStockPrice;
     int i;
@@ -114,6 +117,8 @@ void test3(){
 }
 
 void test4(){
+//Tests the tradingApp functions
+
 //    int menuOptionSelected;
 //    int menuOptionSelected2;
     MyStockPrices myStockPrices;
