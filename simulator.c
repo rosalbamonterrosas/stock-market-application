@@ -4,12 +4,15 @@
  File Name   : simulator.c
  Author      : Rosalba Monterrosas
  Date        : July 11, 2018
+ Description : Simulates the prices of the stocks
  ============================================================================
  */
 
 #include "simulator.h"
 
 void initializeSimulator(char* fileName, MyStockPrices* pMyStockPrices){
+//Reads file with tickers and stock prices and stores it in MyStockPrices struct
+
     char stockInfo[MAXIMUM_CAPACITY];
     pMyStockPrices->myStocksSize=0;
     pMyStockPrices->myStocksCapacity=MAX_MY_STOCKS;
@@ -29,6 +32,8 @@ void initializeSimulator(char* fileName, MyStockPrices* pMyStockPrices){
 }
 
 StockPrice* findStockPrice(MyStockPrices* pMyStockPrices, char* ticker){
+//Returns a pointer to the price of the ticker given
+
     int ret;
     StockPrice* sp;
     int i;
@@ -45,6 +50,8 @@ StockPrice* findStockPrice(MyStockPrices* pMyStockPrices, char* ticker){
 }
 
 double priceSimulatorInternal(double price){
+//Returns a new price based on the multiplier
+
     double perturbation=1/price;
     double multiplier;
     multiplier  =  ((double) rand())/RAND_MAX*perturbation;
@@ -54,6 +61,8 @@ double priceSimulatorInternal(double price){
 }
 
 void inputPriceSimulator(char* pPriceSimulatorTicker, int menuOptionSelected2){
+//Prompts the user to enter a ticker to check its price
+
     if(menuOptionSelected2==2){
         printf("To check the current price of the stock, please enter a ticker from the following options: LULU, TSLA, AMD, AMZN, DOGZ\n");
         scanf(" %s",pPriceSimulatorTicker);
@@ -61,6 +70,8 @@ void inputPriceSimulator(char* pPriceSimulatorTicker, int menuOptionSelected2){
 }
 
 double priceSimulator(MyStockPrices* pMyStockPrices, char* pPriceSimulatorTicker,int simAll){
+//Returns the modified price
+
     StockPrice* sp;
     double currentPrice;
     int i;

@@ -4,12 +4,15 @@
  File Name   : trading.c
  Author      : Rosalba Monterrosas
  Date        : July 11, 2018
+ Description : Facilitates trading on the stock market
  ============================================================================
  */
 
 #include "trading.h"
 
 void initializePortfolio(char* fileName,Portfolio* pMyPortfolio, double balance){
+//Reads file with tickers and sets up Portfolio struct
+
     char stockInfo[MAXIMUM_CAPACITY];
     int i=0;
     pMyPortfolio->myStocksSize=0;
@@ -34,6 +37,8 @@ void initializePortfolio(char* fileName,Portfolio* pMyPortfolio, double balance)
 }
 
 void savePortfolio(char* fileName, Portfolio* pMyPortfolio){
+//Update Portfolio struct
+
     int i;
     FILE* pFile=0;
     pFile=fopen(fileName,"w");
@@ -50,6 +55,8 @@ void savePortfolio(char* fileName, Portfolio* pMyPortfolio){
 }
 
 void readPortfolio(char* fileName, Portfolio* pMyPortfolio, int isSystem){
+//Read file and populate Portfolio struct
+
     int i=0;
     char stockInfo[MAXIMUM_CAPACITY];
     FILE* pFile=0;
@@ -75,12 +82,16 @@ void readPortfolio(char* fileName, Portfolio* pMyPortfolio, int isSystem){
 }
 
 void printStock(Stock* pStock){
+//Prints a single stock
+
     printf("\nTicker: %s\n",pStock->ticker);
     printf("Shares: %.2lf\n",pStock->shares);
     printf("Buy Price: $%.2lf\n",pStock->buyPrice);
 }
 
 void printPortfolio(Portfolio* pMyPortfolio){
+//Prints the Portfolio struct
+
     int i;
 
     for(i=0;i<(pMyPortfolio->myStocksSize);i++){
@@ -90,10 +101,14 @@ void printPortfolio(Portfolio* pMyPortfolio){
 }
 
 double getBalance(Portfolio* pMyPortfolio){
+//Returns the balance in the Portfolio struct
+
   return pMyPortfolio->balance;
 }
 
 int inputBuy(char* pBuyTicker, double* pBuyShares,int menuOptionSelected,MyStockPrices* pMyStockPrices){
+//Prompts user to buy a stock
+
     StockPrice* sp;
     int goBack;
 
@@ -115,6 +130,8 @@ int inputBuy(char* pBuyTicker, double* pBuyShares,int menuOptionSelected,MyStock
 }
 
 void buy(MyStockPrices* pMyStockPrices, Portfolio* pMyPortfolio, char* pBuyTicker,double* pBuyShares){
+//Facilitates the buying of a stock and updates the Portfolio struct
+
     int i;
     int ret;
     StockPrice* sp;
@@ -152,6 +169,8 @@ void buy(MyStockPrices* pMyStockPrices, Portfolio* pMyPortfolio, char* pBuyTicke
 }
 
 int inputSell(char* pSellTicker,double* pSellShares,int menuOptionSelected,MyStockPrices* pMyStockPrices){
+//Prompts the user to sell a stock
+
     StockPrice* sp;
     int goBack;
 
@@ -173,6 +192,8 @@ int inputSell(char* pSellTicker,double* pSellShares,int menuOptionSelected,MySto
 }
 
 void sell(MyStockPrices* pMyStockPrices, Portfolio* pMyPortfolio, char* pSellTicker, double* pSellShares){
+//Facilitates the selling of a stock and updates the Portfolio struct
+
     StockPrice* sp;
     double price;
     double totalIncome;
@@ -214,6 +235,8 @@ void sell(MyStockPrices* pMyStockPrices, Portfolio* pMyPortfolio, char* pSellTic
 }
 
 void saveStockPrices(char* fileName, MyStockPrices* pMyStockPrices){
+//Saves the current stock prices in the file
+
     int i;
     FILE* pFile=0;
     pFile=fopen(fileName,"w");

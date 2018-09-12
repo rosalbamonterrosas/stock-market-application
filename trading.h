@@ -4,6 +4,7 @@
  File Name   : trading.h
  Author      : Rosalba Monterrosas
  Date        : July 11, 2018
+ Description : Facilitates trading on the stock market
  ============================================================================
  */
 
