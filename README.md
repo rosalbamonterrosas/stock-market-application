@@ -5,7 +5,7 @@ Simulation of stock market trading
 The application first initializes the simulator by reading the file mystocks.txt, which contains five tickers and their prices. This data is stored in the MyStockPrices struct.
 
 The user is first presented a menu in which they have five options: 
-View the current price of one or more stocks
+View the current price of one or more stocks 
 Buy a stock
 Sell a stock
 View their portfolio
