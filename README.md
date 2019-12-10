@@ -1,6 +1,8 @@
-Stock Market Application
+# Stock Market Application
 
-Simulation of stock market trading
+### The file project3main.c is the driver file.
+
+## Simulation of stock market trading
 
 The application first initializes the simulator by reading the file mystocks.txt, which contains five tickers and their prices. This data is stored in the MyStockPrices struct.
 
@@ -22,3 +24,5 @@ If the user choose to view their portfolio before buying or selling a stock, a n
 After the user chooses an option on the menu, the user will go back to the main menu to continue choosing other options. 
 
 When the user quits the program, the current data in the portfolio is saved.
+
+
